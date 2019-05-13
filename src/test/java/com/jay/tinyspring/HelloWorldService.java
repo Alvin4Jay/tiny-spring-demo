@@ -7,8 +7,17 @@ package com.jay.tinyspring;
  */
 public class HelloWorldService {
 
+    private String text;
+
     public void sayHello() {
-        System.out.println("Hello world!");
+        System.out.println(text);
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
 }
