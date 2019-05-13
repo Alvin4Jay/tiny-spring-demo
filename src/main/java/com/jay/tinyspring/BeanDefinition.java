@@ -1,7 +1,7 @@
 package com.jay.tinyspring;
 
 /**
- * BeanDefinition
+ * BeanDefinition bean的内容及元数据，保存在BeanFactory中，包装bean的实体
  *
  * @author xuanjian
  */
@@ -18,6 +18,10 @@ public class BeanDefinition {
      * Class对象
      */
     private Class<?> beanClass;
+    /**
+     * Bean属性(及值)集合
+     */
+    private PropertyValues propertyValues;
 
     public BeanDefinition() {
     }
@@ -49,6 +53,14 @@ public class BeanDefinition {
 
     public void setBeanClass(Class<?> beanClass) {
         this.beanClass = beanClass;
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
     }
 
 }
