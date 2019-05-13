@@ -1,0 +1,17 @@
+package com.jay.tinyspring.io;
+
+import java.net.URL;
+
+/**
+ * Class description here.
+ *
+ * @author xuanjian
+ */
+public class ResourceLoader {
+
+    public Resource getResource(String location) {
+        URL resourceUrl = this.getClass().getClassLoader().getResource(location);
+        return new UrlResource(resourceUrl);
+    }
+
+}

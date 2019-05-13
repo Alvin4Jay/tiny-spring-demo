@@ -21,7 +21,7 @@ public class BeanDefinition {
     /**
      * Bean属性(及值)集合
      */
-    private PropertyValues propertyValues;
+    private PropertyValues propertyValues = new PropertyValues();
 
     public BeanDefinition() {
     }
