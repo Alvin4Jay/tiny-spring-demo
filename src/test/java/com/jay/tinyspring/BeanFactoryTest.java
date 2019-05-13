@@ -23,7 +23,6 @@ public class BeanFactoryTest {
 
         // 2.初始化BeanFactory并注册bean
         BeanFactory beanFactory = new AutowireCapableBeanFactory();
-
         for (Map.Entry<String, BeanDefinition> beanDefinition : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             beanFactory.registerBeanDefinition(beanDefinition.getKey(), beanDefinition.getValue());
         }

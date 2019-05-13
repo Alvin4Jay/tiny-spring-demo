@@ -3,7 +3,7 @@ package com.jay.tinyspring.io;
 import java.net.URL;
 
 /**
- * Class description here.
+ * Resource加载器
  *
  * @author xuanjian
  */

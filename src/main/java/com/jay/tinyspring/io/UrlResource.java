@@ -1,11 +1,12 @@
 package com.jay.tinyspring.io;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * Resource加载器
+ * URL资源
  *
  * @author xuanjian
  */
@@ -18,7 +19,7 @@ public class UrlResource implements Resource {
     }
 
     @Override
-    public InputStream getInputStream() throws Exception {
+    public InputStream getInputStream() throws IOException {
         URLConnection connection = url.openConnection();
         return connection.getInputStream();
     }
