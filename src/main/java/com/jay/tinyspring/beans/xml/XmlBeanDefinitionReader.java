@@ -81,6 +81,10 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                 } else {
                     // 获取ref beanName
                     String propertyRefBeanName = property.getAttribute("ref");
+                    if (propertyRefBeanName == null || propertyRefBeanName.length() == 0) {
+                        throw new IllegalArgumentException("Configuration problem: <property> element for property '"
+                                + propertyName + "' must specify a ref or value");
+                    }
                     BeanReference beanReference = new BeanReference(propertyRefBeanName);
                     beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(propertyName, beanReference));
                 }
