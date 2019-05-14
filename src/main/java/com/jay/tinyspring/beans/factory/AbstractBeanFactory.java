@@ -1,6 +1,6 @@
-package com.jay.tinyspring.factory;
+package com.jay.tinyspring.beans.factory;
 
-import com.jay.tinyspring.BeanDefinition;
+import com.jay.tinyspring.beans.BeanDefinition;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,12 +19,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
 
     @Override
-    public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws Exception {
-        beanDefinitionMap.put(beanName, beanDefinition);
-        beanNames.add(beanName);
-    }
-
-    @Override
     public Object getBean(String beanName) throws Exception {
         BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
         if (beanDefinition == null) {
@@ -36,6 +30,11 @@ public abstract class AbstractBeanFactory implements BeanFactory {
             bean = doCreateBean(beanDefinition);
         }
         return bean;
+    }
+
+    public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws Exception {
+        beanDefinitionMap.put(beanName, beanDefinition);
+        beanNames.add(beanName);
     }
 
     /**

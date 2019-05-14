@@ -1,4 +1,4 @@
-package com.jay.tinyspring;
+package com.jay.tinyspring.beans;
 
 import java.util.ArrayList;
 import java.util.List;

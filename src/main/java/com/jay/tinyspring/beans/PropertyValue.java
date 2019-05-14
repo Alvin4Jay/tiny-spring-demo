@@ -1,4 +1,4 @@
-package com.jay.tinyspring;
+package com.jay.tinyspring.beans;
 
 /**
  * Bean属性及值 用于bean的属性注入

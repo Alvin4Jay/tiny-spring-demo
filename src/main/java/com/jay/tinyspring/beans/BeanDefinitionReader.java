@@ -1,4 +1,4 @@
-package com.jay.tinyspring;
+package com.jay.tinyspring.beans;
 
 /**
  * 从配置中读取BeanDefinitions

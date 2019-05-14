@@ -1,6 +1,6 @@
-package com.jay.tinyspring.xml;
+package com.jay.tinyspring.beans.xml;
 
-import com.jay.tinyspring.io.ResourceLoader;
+import com.jay.tinyspring.beans.io.ResourceLoader;
 import org.junit.Assert;
 import org.junit.Test;
 

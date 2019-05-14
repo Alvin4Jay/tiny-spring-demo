@@ -1,8 +1,8 @@
-package com.jay.tinyspring.factory;
+package com.jay.tinyspring.beans.factory;
 
-import com.jay.tinyspring.BeanDefinition;
+import com.jay.tinyspring.beans.BeanDefinition;
 import com.jay.tinyspring.BeanReference;
-import com.jay.tinyspring.PropertyValue;
+import com.jay.tinyspring.beans.PropertyValue;
 
 import java.lang.reflect.Field;
 
