@@ -8,9 +8,11 @@ package com.jay.tinyspring;
 public class HelloWorldService {
 
     private String text;
+    /** 循环依赖测试 */
+    private OutputService outputService;
 
     public void sayHello() {
-        System.out.println(text);
+        outputService.output(text);
     }
 
     public void setText(String text) {
@@ -19,5 +21,13 @@ public class HelloWorldService {
 
     public String getText() {
         return text;
+    }
+
+    public OutputService getOutputService() {
+        return outputService;
+    }
+
+    public void setOutputService(OutputService outputService) {
+        this.outputService = outputService;
     }
 }

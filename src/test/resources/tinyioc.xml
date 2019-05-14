@@ -10,6 +10,11 @@
 
     <bean name="helloWorldService" class="com.jay.tinyspring.HelloWorldService">
         <property name="text" value="Hello World!"/>
+        <property name="outputService" ref="outputService"/>
+    </bean>
+
+    <bean name="outputService" class="com.jay.tinyspring.OutputService">
+        <property name="helloWorldService" ref="helloWorldService"/>
     </bean>
 
 </beans>

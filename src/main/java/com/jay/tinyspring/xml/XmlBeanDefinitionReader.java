@@ -2,6 +2,7 @@ package com.jay.tinyspring.xml;
 
 import com.jay.tinyspring.AbstractBeanDefinitionReader;
 import com.jay.tinyspring.BeanDefinition;
+import com.jay.tinyspring.BeanReference;
 import com.jay.tinyspring.PropertyValue;
 import com.jay.tinyspring.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -75,7 +76,14 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                 Element property = (Element) node;
                 String propertyName = property.getAttribute("name");
                 String propertyValue = property.getAttribute("value");
-                beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(propertyName, propertyValue));
+                if (propertyValue != null && propertyValue.length() > 0) {
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(propertyName, propertyValue));
+                } else {
+                    // 获取ref beanName
+                    String propertyRefBeanName = property.getAttribute("ref");
+                    BeanReference beanReference = new BeanReference(propertyRefBeanName);
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(propertyName, beanReference));
+                }
             }
         }
     }

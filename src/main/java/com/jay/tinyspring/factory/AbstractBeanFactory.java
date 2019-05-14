@@ -2,6 +2,9 @@ package com.jay.tinyspring.factory;
 
 import com.jay.tinyspring.BeanDefinition;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -12,22 +15,42 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 
+    private final List<String> beanNames = new ArrayList<>();
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
 
     @Override
     public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws Exception {
-        Object bean = doCreateBean(beanDefinition);
-        beanDefinition.setBean(bean);
         beanDefinitionMap.put(beanName, beanDefinition);
+        beanNames.add(beanName);
     }
 
     @Override
-    public Object getBean(String beanName) {
-        return beanDefinitionMap.get(beanName).getBean();
+    public Object getBean(String beanName) throws Exception {
+        BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
+        if (beanDefinition == null) {
+            throw new IllegalArgumentException("No bean named " + beanName + " is defined.");
+        }
+        Object bean = beanDefinition.getBean();
+        if (bean == null) {
+            // lazy init
+            bean = doCreateBean(beanDefinition);
+        }
+        return bean;
+    }
+
+    /**
+     * 预初始化单例
+     */
+    public void preInstantiateSingletons() throws Exception {
+        Iterator<String> iterator = beanNames.iterator();
+        while (iterator.hasNext()) {
+            getBean(iterator.next());
+        }
     }
 
     /**
      * 创建Bean
+     *
      * @param beanDefinition {@link BeanDefinition}
      * @return
      */
