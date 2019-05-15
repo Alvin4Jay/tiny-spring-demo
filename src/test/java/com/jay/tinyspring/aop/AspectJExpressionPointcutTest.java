@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import static org.junit.Assert.*;
 
 /**
- * AspectJExpressionPointcutTest
+ * AspectJExpressionPointcut Test
  *
  * @author xuanjian
  */
@@ -20,7 +20,7 @@ public class AspectJExpressionPointcutTest {
     public void testClassFilter() {
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
         pointcut.setExpression(expression);
-        boolean matches = pointcut.getClassFilter().match(HelloWorldServiceImpl.class);
+        boolean matches = pointcut.getClassFilter().matches(HelloWorldServiceImpl.class);
         assertTrue(matches);
     }
 
@@ -29,7 +29,7 @@ public class AspectJExpressionPointcutTest {
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
         pointcut.setExpression(expression);
         Method method = HelloWorldServiceImpl.class.getDeclaredMethod("sayHello");
-        boolean matches = pointcut.getMethodMatcher().match(method, HelloWorldServiceImpl.class);
+        boolean matches = pointcut.getMethodMatcher().matches(method, HelloWorldServiceImpl.class);
         assertTrue(matches);
     }
 

@@ -8,7 +8,7 @@ import org.aopalliance.intercept.MethodInvocation;
  *
  * @author xuanjian
  */
-public class TimerIntercepter implements MethodInterceptor {
+public class TimerInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         long start = System.nanoTime();

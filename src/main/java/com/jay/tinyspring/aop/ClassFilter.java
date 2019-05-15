@@ -7,6 +7,6 @@ package com.jay.tinyspring.aop;
  */
 public interface ClassFilter {
 
-    boolean match(Class<?> clazz);
+    boolean matches(Class<?> clazz);
 
 }

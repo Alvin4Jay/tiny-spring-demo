@@ -9,6 +9,6 @@ import java.lang.reflect.Method;
  */
 public interface MethodMather {
 
-    boolean match(Method method, Class<?> clazz);
+    boolean matches(Method method, Class<?> clazz);
 
 }

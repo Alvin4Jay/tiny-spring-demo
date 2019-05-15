@@ -3,7 +3,7 @@ package com.jay.tinyspring.aop;
 import org.aopalliance.aop.Advice;
 
 /**
- * Class description here.
+ * Advisor
  *
  * @author xuanjian
  */

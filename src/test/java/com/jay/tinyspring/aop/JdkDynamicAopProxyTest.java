@@ -28,7 +28,7 @@ public class JdkDynamicAopProxyTest {
         advisedSupport.setTargetSource(targetSource);
 
         // 2. 设置拦截器(Advice)
-        advisedSupport.setMethodInterceptor(new TimerIntercepter());
+        advisedSupport.setMethodInterceptor(new TimerInterceptor());
 
         // 3.创建代理(Proxy)
         JdkDynamicAopProxy jdkDynamicAopProxy = new JdkDynamicAopProxy(advisedSupport);
