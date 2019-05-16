@@ -3,7 +3,6 @@ package com.jay.tinyspring.beans.factory;
 import com.jay.tinyspring.beans.BeanDefinition;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -41,9 +40,8 @@ public abstract class AbstractBeanFactory implements BeanFactory {
      * 预初始化单例
      */
     public void preInstantiateSingletons() throws Exception {
-        Iterator<String> iterator = beanNames.iterator();
-        while (iterator.hasNext()) {
-            getBean(iterator.next());
+        for (String beanName : beanNames) {
+            getBean(beanName);
         }
     }
 
