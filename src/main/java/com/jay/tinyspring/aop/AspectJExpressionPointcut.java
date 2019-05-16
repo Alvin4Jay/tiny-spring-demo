@@ -18,6 +18,12 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
 
     private static final Set<PointcutPrimitive> DEFAULT_SUPPORTED_PRIMITIVES = new HashSet<>();
 
+    private String expression;
+
+    private PointcutParser pointcutParser;
+
+    private PointcutExpression pointcutExpression;
+
     static {
         DEFAULT_SUPPORTED_PRIMITIVES.add(PointcutPrimitive.EXECUTION);
         DEFAULT_SUPPORTED_PRIMITIVES.add(PointcutPrimitive.ARGS);
@@ -31,10 +37,6 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
         DEFAULT_SUPPORTED_PRIMITIVES.add(PointcutPrimitive.AT_TARGET);
     }
 
-    private String expression;
-    private PointcutParser pointcutParser;
-    private PointcutExpression pointcutExpression;
-
     public AspectJExpressionPointcut() {
         this(DEFAULT_SUPPORTED_PRIMITIVES);
     }
@@ -42,10 +44,6 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
     public AspectJExpressionPointcut(Set<PointcutPrimitive> supportedPrimitives) {
         pointcutParser = PointcutParser
                 .getPointcutParserSupportingSpecifiedPrimitivesAndUsingContextClassloaderForResolution(supportedPrimitives);
-    }
-
-    public void setExpression(String expression) {
-        this.expression = expression;
     }
 
     @Override
@@ -74,6 +72,10 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
 
     private PointcutExpression buildPointcutExpression() {
         return pointcutParser.parsePointcutExpression(expression);
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression;
     }
 
     @Override
