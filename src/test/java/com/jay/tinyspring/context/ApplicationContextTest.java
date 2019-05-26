@@ -17,4 +17,11 @@ public class ApplicationContextTest {
         helloWorldService.sayHello();
     }
 
+    @Test
+    public void testBeanPostProcessor() throws Exception {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("tinyioc-postbeanprocessor.xml");
+        HelloWorldService helloWorldService = (HelloWorldService) ctx.getBean("helloWorldService");
+        helloWorldService.sayHello();
+    }
+
 }

@@ -7,13 +7,24 @@ package com.jay.tinyspring.aop;
  */
 public class TargetSource {
 
+    /**
+     * 被代理实例
+     */
     private Object target;
-
+    /**
+     * 被代理类
+     */
     private Class<?> targetClass;
+    /**
+     * 被代理接口
+     */
+    private Class<?>[] interfaces;
 
-    public TargetSource(Object target, Class<?> targetClass) {
+
+    public TargetSource(Object target, Class<?> targetClass, Class<?>... interfaces) {
         this.target = target;
         this.targetClass = targetClass;
+        this.interfaces = interfaces;
     }
 
     public Object getTarget() {
@@ -24,6 +35,14 @@ public class TargetSource {
         this.target = target;
     }
 
+    public Class<?>[] getInterfaces() {
+        return interfaces;
+    }
+
+    public void setInterfaces(Class<?>... interfaces) {
+        this.interfaces = interfaces;
+    }
+
     public Class<?> getTargetClass() {
         return targetClass;
     }
@@ -31,4 +50,5 @@ public class TargetSource {
     public void setTargetClass(Class<?> targetClass) {
         this.targetClass = targetClass;
     }
+
 }

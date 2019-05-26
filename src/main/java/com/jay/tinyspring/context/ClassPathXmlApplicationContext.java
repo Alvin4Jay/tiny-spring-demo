@@ -3,6 +3,7 @@ package com.jay.tinyspring.context;
 import com.jay.tinyspring.beans.BeanDefinition;
 import com.jay.tinyspring.beans.factory.AbstractBeanFactory;
 import com.jay.tinyspring.beans.factory.AutowireCapableBeanFactory;
+import com.jay.tinyspring.beans.factory.BeanFactory;
 import com.jay.tinyspring.beans.io.ResourceLoader;
 import com.jay.tinyspring.beans.xml.XmlBeanDefinitionReader;
 
@@ -28,11 +29,11 @@ public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
     }
 
     @Override
-    public void refresh() throws Exception {
+    protected void loadBeanDefinitions(AbstractBeanFactory beanFactory) throws Exception {
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
         xmlBeanDefinitionReader.loadBeanDefinitions(this.configLocation);
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
-            this.beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+            beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
     }
 }

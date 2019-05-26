@@ -1,7 +1,7 @@
 package com.jay.tinyspring.aop;
 
 /**
- * Class description here.
+ * 切点通知器
  *
  * @author xuanjian
  */

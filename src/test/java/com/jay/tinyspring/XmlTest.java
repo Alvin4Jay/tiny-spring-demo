@@ -35,7 +35,7 @@ public class XmlTest {
             Node node = nodeList.item(i);
             if (node instanceof Element) {
                 Element e = (Element) node;
-                String beanName = e.getAttribute("name");
+                String beanName = e.getAttribute("id");
                 String className = e.getAttribute("class");
                 System.out.println("beanName: " + beanName);
                 System.out.println("className: " + className);
@@ -46,8 +46,8 @@ public class XmlTest {
                     Node nn = nl.item(j);
                     if (nn instanceof Element) {
                         Element ee = (Element) nn;
-                        System.out.println("property name: " + ee.getAttribute("name"));
-                        System.out.println("property value: " + ee.getAttribute("value"));
+                        System.out.println("\tproperty name: " + ee.getAttribute("name"));
+                        System.out.println("\tproperty value: " + ee.getAttribute("value"));
                     }
                 }
 

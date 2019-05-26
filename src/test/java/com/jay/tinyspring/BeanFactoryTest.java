@@ -3,7 +3,6 @@ package com.jay.tinyspring;
 import com.jay.tinyspring.beans.BeanDefinition;
 import com.jay.tinyspring.beans.factory.AbstractBeanFactory;
 import com.jay.tinyspring.beans.factory.AutowireCapableBeanFactory;
-import com.jay.tinyspring.beans.factory.BeanFactory;
 import com.jay.tinyspring.beans.io.ResourceLoader;
 import com.jay.tinyspring.beans.xml.XmlBeanDefinitionReader;
 import org.junit.Test;

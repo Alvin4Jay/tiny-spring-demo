@@ -6,7 +6,9 @@ package com.jay.tinyspring;
  * @author xuanjian
  */
 public class BeanReference {
-
+    /**
+     * 引用的Bean name
+     */
     private String name;
 
     private Object bean;

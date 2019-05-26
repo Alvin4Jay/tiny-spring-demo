@@ -13,8 +13,8 @@ public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 
     private Advice advice;
 
-    public void setPointcut(AspectJExpressionPointcut pointcut) {
-        this.pointcut = pointcut;
+    public void setExpression(String expression) {
+        this.pointcut.setExpression(expression);
     }
 
     public void setAdvice(Advice advice) {

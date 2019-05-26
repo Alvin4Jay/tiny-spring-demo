@@ -12,11 +12,20 @@ import java.lang.reflect.Method;
  */
 public class ReflectiveMethodInvocation implements MethodInvocation {
 
-    private Object target;
+    /**
+     * 实际对象
+     */
+    protected Object target;
 
-    private Method method;
+    /**
+     * 实际方法
+     */
+    protected Method method;
 
-    private Object[] args;
+    /**
+     * 实际参数
+     */
+    protected Object[] args;
 
     public ReflectiveMethodInvocation(Object target, Method method, Object[] args) {
         this.target = target;

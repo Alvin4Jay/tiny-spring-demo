@@ -13,6 +13,8 @@ public class AdvisedSupport {
 
     private MethodInterceptor methodInterceptor;
 
+    private MethodMather methodMather;
+
     public TargetSource getTargetSource() {
         return targetSource;
     }
@@ -27,5 +29,13 @@ public class AdvisedSupport {
 
     public void setMethodInterceptor(MethodInterceptor methodInterceptor) {
         this.methodInterceptor = methodInterceptor;
+    }
+
+    public MethodMather getMethodMather() {
+        return methodMather;
+    }
+
+    public void setMethodMather(MethodMather methodMather) {
+        this.methodMather = methodMather;
     }
 }
